@@ -4,4 +4,10 @@ class MusicAlbum
   def initialize(on_spotify)
     @on_spotify = on_spotify
   end
+
+  def can_be_archived?
+    return true if @on_spotify == true
+
+    false
+  end
 end
