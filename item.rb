@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'date'
 
+# item
 class Item
   attr_reader :id, :archived
   attr_accessor :author, :genre, :label, :publish_date
@@ -18,6 +21,7 @@ class Item
 
   def can_be_archived?
     return true if ((DateTime.now - @publish_date) / 365).to_i > 10
+
     false
   end
 
