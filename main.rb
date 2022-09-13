@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 def main
   puts 'Choose an option: '
   puts '[1] List Items'
