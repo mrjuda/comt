@@ -1,3 +1,4 @@
+# Album class
 class MusicAlbum
   attr_accessor :title, :on_spotify
 
