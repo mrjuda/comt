@@ -25,7 +25,7 @@ class App
       puts "Multiplayer: #{game.multiplayer}\n"
     end
   end
-  
+
   def add_game(game)
     @games << game
   end
