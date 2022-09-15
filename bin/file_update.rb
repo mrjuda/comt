@@ -14,6 +14,7 @@ module FileUpdate
       json_author = JSON.generate(author)
       File.write('data/author.json', "#{json_author}\n", mode: 'a')
     end
+  end
 
   def reader_authors
     unless File.exist?('data/author.json')
