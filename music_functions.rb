@@ -29,6 +29,7 @@ class Data
     else
       print 'No genres yet'
     end
+    genre.name
   end
 
   def read_albums
@@ -87,6 +88,7 @@ class Data
     write_albums(@albums)
     write_genres(@albums)
     puts 'Album created successfully!'
+    album
   end
 
   def write_genres(albums)
