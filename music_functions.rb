@@ -18,8 +18,7 @@ def list_genres(genres)
     print 'No genres yet'
   end
 end
-
-# rubocop:disable All
+# rubocop:disable all
 def create_album
   puts 'Please enter the publish date (YYYY/MM/DD):'
   publish_date = gets.chomp
@@ -45,4 +44,3 @@ def create_album
 
   puts 'Album created successfully!'
 end
-# rubocop:enable All
