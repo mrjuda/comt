@@ -1,6 +1,8 @@
+require_relative '../bin/app'
 require_relative '../lib/game'
 require_relative '../lib/author'
 require_relative '../bin/add_file'
+
 class Main
   include AddFile
   def prompt
