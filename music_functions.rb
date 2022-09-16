@@ -12,7 +12,7 @@ end
 def list_genres(genres)
   if genres.length.positive?
     genres.each do |genre|
-      print "#{genre.name}"
+      print genre.name
     end
   else
     print 'No genres yet'
@@ -25,8 +25,6 @@ def create_album
   publish_date = gets.chomp
   puts 'Is it on Spotify? (true/false)'
   on_spotify = gets.chomp
-  puts 'Title:'
-  title = gets.chomp
   puts 'Genre:'
   genre = gets.chomp
   puts 'Author:'
@@ -47,3 +45,4 @@ def create_album
 
   puts 'Album created successfully!'
 end
+# rubocop:enable Metrics/MethodLength
