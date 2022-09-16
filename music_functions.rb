@@ -19,8 +19,9 @@ def list_genres(genres)
   end
 end
 
-# rubocop:disable Metrics/MethodLength
+
 def create_album
+  # rubocop:disable Metrics/MethodLength
   puts 'Please enter the publish date (YYYY/MM/DD):'
   publish_date = gets.chomp
   puts 'Is it on Spotify? (true/false)'
