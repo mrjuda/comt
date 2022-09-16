@@ -11,7 +11,7 @@ class Item
     @genre = nil
   end
 
-  def move_to_archive()
+  def move_to_archive
     @archived = true if can_be_archieved?
   end
 

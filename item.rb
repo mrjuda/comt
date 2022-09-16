@@ -1,31 +1,39 @@
 require 'date'
-
-# item
 class Item
-  attr_reader :id, :archived
-  attr_accessor :author, :genre, :label, :publish_date
+  attr_accessor :publish_date, :author, :label, :genre
+  attr_reader :archived
 
-  def initialize(id, publish_date)
-    @id = id || Random.rand(1..1000)
-    @archived = false
-    @publish_date = Date.parse(publish_date)
+  def initialize(publish_date, archived: false)
+    @publish_date = publish_date
+    @archived = archived
+    @author = nil
+    @label = nil
+    @genre = nil
   end
 
-  def add_props(author, genre, label)
-    @author = author
+  def move_to_archive
+    @archived = true if can_be_archieved?
+  end
+
+  def add_genre(genre)
     @genre = genre
+    genre.add_item(self)
+  end
+
+  def add_author(author)
+    @author = author
+    author.add_item(self)
+  end
+
+  def add_label(label)
     @label = label
+    label.add_item(self)
   end
 
   private
 
-  def can_be_archived?
-    return true if ((DateTime.now - @publish_date) / 365).to_i > 10
-
-    false
-  end
-
-  def move_to_archive
-    @archived = true if can_be_archived?
+  def can_be_archieved?
+    current_date = Date.today.year
+    current_date - Date.parse(publish_date).year > 10
   end
 end
