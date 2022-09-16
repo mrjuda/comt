@@ -1,7 +1,12 @@
+#!/usr/bin/env ruby
+
 require_relative '../bin/app'
 require_relative '../lib/game'
 require_relative '../lib/author'
 require_relative '../bin/add_file'
+require_relative '../lib/book'
+require_relative '../bin/create_book'
+require_relative '../lib/item'
 
 class Main
   include AddFile
@@ -47,10 +52,12 @@ Please choose an option by entering a number:
 
   def list_selection(option)
     case option
+    when 1 then @app.list_all_books
     # when 2 then @app.list_music
     # when 3 then @app.list_movies
     when 4 then @app.list_games
     # when 5 then @app.list_genres
+    when 6 then @app.list_all_labels
     when 7 then @app.list_authors
       # when 8 then @app.list_sources
     end

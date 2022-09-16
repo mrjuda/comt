@@ -12,7 +12,7 @@ class Item
   end
 
   def move_to_archive
-    @archived = true if can_be_archieved?
+    @archived = true if can_be_archived?
   end
 
   def add_author(author)
@@ -22,7 +22,6 @@ class Item
 
   def add_label(label)
     @label = label
-    # label.add_item(self)
     label.items.push(self) if defined?(@label.items) && !label.items.include?(self)
   end
 
@@ -33,7 +32,7 @@ class Item
 
   private
 
-  def can_be_archieved?
+  def can_be_archived?
     current_date = Date.today.year
     current_date - Date.parse(publish_date).year > 10
   end

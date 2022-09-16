@@ -1,6 +1,6 @@
 # create_book.rb
 
-require_relative 'book'
+require_relative '../lib/book'
 
 class BookGenerator
   def create_book(date)
