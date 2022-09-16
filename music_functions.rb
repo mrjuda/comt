@@ -77,11 +77,13 @@ class Data
     on_spotify = gets.chomp
     puts 'Genre:'
     genre = gets.chomp
-    puts 'Author:'
-    author = gets.chomp
+    puts 'Author First Name:'
+    authorfn = gets.chomp
+    puts 'Author Last Name:'
+    authorln = gets.chomp
 
     new_genre = Genre.new(genre)
-    new_author = Author.new(author, author)
+    new_author = Author.new(authorfn, authorln)
     album = MusicAlbum.new(on_spotify, publish_date, new_genre, new_author)
 
     @albums.push(album)
