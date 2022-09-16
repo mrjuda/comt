@@ -22,7 +22,8 @@ class Item
 
   def add_label(label)
     @label = label
-    label.add_item(self)
+    # label.add_item(self)
+    label.items.push(self) if defined?(@label.items) && !label.items.include?(self)
   end
 
   def add_genre(genre)
