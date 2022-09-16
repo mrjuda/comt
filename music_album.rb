@@ -1,4 +1,5 @@
 require_relative './item'
+require_relative './genre'
 require 'date'
 
 # Album class
@@ -6,23 +7,12 @@ class MusicAlbum < Item
   attr_accessor :on_spotify, :archived, :publish_date
   attr_reader :genre
 
-  def initialize(on_spotify, publish_date)
-    super(publish_date, id: nil)
+  def initialize(on_spotify, publish_date, genre, author)
+    super(publish_date, genre, author)
+    @id = Random.rand(1..1000)
     @on_spotify = on_spotify
     @publish_date = publish_date
     @archived = can_be_archived?
-    add_genre(genre)
-  end
-
-  def to_json(*args)
-    {
-      JSON.create_id => self.class.name,
-      'a' => [publish_date, on_spotify, archived]
-    }.to_json(*args)
-  end
-
-  def self.json_create(object)
-    new(*object['a'])
   end
 
   private

@@ -1,4 +1,5 @@
 require_relative 'item'
+require 'json'
 
 # Genre class
 class Genre
@@ -10,19 +11,8 @@ class Genre
     @items = []
   end
 
-  def add_item(item)
+  def add_genre(item)
     @items.push(item) unless @items.include?(item)
     item.author = self
-  end
-
-  def to_json(*args)
-    {
-      JSON.create_id => self.class.name,
-      'a' => [name]
-    }.to_json(*args)
-  end
-
-  def self.json_create(object)
-    new(*object['a'])
   end
 end
