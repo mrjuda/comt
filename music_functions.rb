@@ -3,6 +3,7 @@ require_relative './genre'
 require_relative './lib/author'
 require 'json'
 
+# rubocop:disable all
 class Data
   def initialize
     @albums_file = './data/albums.json'
@@ -66,7 +67,7 @@ class Data
 
     genres
   end
-  # rubocop:disable all
+
   def create_new_album
     @albums = []
     puts 'Please enter the publish date (YYYY/MM/DD):'
