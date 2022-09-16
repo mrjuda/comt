@@ -1,6 +1,7 @@
 # book.rb
 
-require_relative '../item'
+require_relative 'item'
+require 'date'
 
 class Book < Item
   def initialize(date, publisher, cover_state)
