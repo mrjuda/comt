@@ -39,19 +39,11 @@ Please choose an option by entering a number:
       prompt
       option = gets.chomp.to_i
       exit = 1 if option == 13
-      select_option(option)
-    end
-  end
-
-  def select_option(option)
-    if option.positive? && option < 9
       list_selection(option)
-    else
-      add_selection(option)
     end
   end
 
-  def list_selection(option)
+  def list_selection(option) # rubocop:disable Metrics/CyclomaticComplexity
     case option
     when 1 then @app.list_all_books
     when 2 then @app.list_music_albums
@@ -61,11 +53,6 @@ Please choose an option by entering a number:
     when 6 then @app.list_all_labels
     when 7 then @app.list_authors
     # when 8 then @app.list_sources
-    end
-  end
-
-  def add_selection(option)
-    case option
     when 9 then add_book
     when 10 then @app.add_music
     # when 11 then add_movie
