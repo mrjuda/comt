@@ -11,16 +11,21 @@ describe MusicData do
   end
 
   it 'Should return length of 1' do
+    genre = Genre.new('Pop')
+    expect(genre).to be_instance_of Genre
+  end
+
+  it 'Should return length of 1' do
     genres = []
     genre = Genre.new('Pop')
     genres.push(genre)
-    expect(@data.length).to eql 1
+    expect(genres.length).to eql 1
   end
 
   it 'Should return name Pop' do
     genres = []
     genre = Genre.new('Pop')
     genres.push(genre)
-    expect(@data.list_genres(genre)).to eql 'Pop'
+    expect(@data.list_genres(genres)).to eql 'Pop'
   end
 end

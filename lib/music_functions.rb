@@ -32,6 +32,7 @@ class MusicData
     else
       print 'No genres yet'
     end
+    genres[0].name
   end
 
   def read_albums
