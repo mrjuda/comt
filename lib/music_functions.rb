@@ -9,14 +9,15 @@ class MusicData
   def initialize
     @albums_file = './data/albums.json'
     @genres_file = './data/genres.json'
+    @albums = []
+    @genres = []
   end
 
   def list_albums(albums)
     if albums.length.positive?
       albums.each do |album|
         on_spotify = album.on_spotify == true ? 'YES' : 'NO'
-        print album
-        print "#{album.publish_date} (#{album.author.first_name} #{album.author.last_name}) - On Spotify: #{on_spotify}"
+        puts "#{album.publish_date} (#{album.author.first_name} #{album.author.last_name}) - On Spotify: #{on_spotify}"
       end
     else
       print 'No albums yet'
@@ -26,7 +27,7 @@ class MusicData
   def list_genres(genres)
     if genres.length.positive?
       genres.each do |genre|
-        print genre.name
+        puts genre.name
       end
     else
       print 'No genres yet'
@@ -70,7 +71,6 @@ class MusicData
   end
 
   def create_new_album
-    @albums = []
     puts 'Please enter the publish date (YYYY/MM/DD):'
     publish_date = gets.chomp
     puts 'Is it on Spotify? (true/false)'
@@ -90,13 +90,15 @@ class MusicData
     write_albums(@albums)
     write_genres(@albums)
     puts 'Album created successfully!'
-    album
+    @albums
   end
 
   def write_genres(albums)
     file = File.open(@genres_file, 'a+')
     File.write(@genres_file, JSON.pretty_generate(make_genre(albums)))
+    @genres.push(make_genre(albums))
     file.close
+    @genres
   end
 
   def make_genre(albums)
@@ -113,7 +115,7 @@ class MusicData
 
   def write_albums(albums)
     file = File.open(@albums_file, 'a+')
-    File.write(file, JSON.pretty_generate(make_album(albums)), mode: 'a')
+    File.write(file, JSON.pretty_generate(make_album(albums)))
     file.close
   end
 
