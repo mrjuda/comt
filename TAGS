@@ -1,0 +1,144 @@
+
+lib/author.rb,475
+class AuthorAuthor1,0
+  attr_accessor :first_name, :last_namefirst_name2,0
+  attr_accessor :first_name, :last_namefirst_name=2,0
+  attr_accessor :first_name, :last_namelast_name2,0
+  attr_accessor :first_name, :last_namelast_name=2,0
+  attr_reader :itemsitems3,0
+  def initialize(first_name = 'Undefined', last_name = 'Undefined')initialize5,0
+  def add_item(item)add_item11,0
+  def to_json(*args)to_json16,0
+  def self.json_create(object)json_create23,0
+
+lib/item.rb,867
+class ItemItem2,0
+  attr_accessor :publish_date, :author, :label, :genrepublish_date3,0
+  attr_accessor :publish_date, :author, :label, :genrepublish_date=3,0
+  attr_accessor :publish_date, :author, :label, :genreauthor3,0
+  attr_accessor :publish_date, :author, :label, :genreauthor=3,0
+  attr_accessor :publish_date, :author, :label, :genrelabel3,0
+  attr_accessor :publish_date, :author, :label, :genrelabel=3,0
+  attr_accessor :publish_date, :author, :label, :genregenre3,0
+  attr_accessor :publish_date, :author, :label, :genregenre=3,0
+  attr_reader :archivedarchived4,0
+  def initialize(publish_date, archived: false)initialize6,0
+  def move_to_archivemove_to_archive14,0
+  def add_author(author)add_author18,0
+  def add_label(label)add_label23,0
+  def add_genre(genre)add_genre28,0
+  def can_be_archieved?can_be_archieved?35,0
+
+lib/game.rb,458
+class Game < ItemGame4,0
+  attr_accessor :multiplayer, :last_played_atmultiplayer5,0
+  attr_accessor :multiplayer, :last_played_atmultiplayer=5,0
+  attr_accessor :multiplayer, :last_played_atlast_played_at5,0
+  attr_accessor :multiplayer, :last_played_atlast_played_at=5,0
+  def initialize(publish_date,initialize7,0
+  def to_json(*args)to_json15,0
+  def self.json_create(object)json_create22,0
+  def can_be_archieved?can_be_archieved?28,0
+
+music_functions.rb,116
+def list_albums(albums)list_albums1,0
+def list_genres(genres)list_genres12,0
+def create_albumcreate_album22,0
+
+music_data.rb,212
+class DataData6,0
+  def initializeinitialize7,0
+  def read_albumsread_albums12,0
+  def write_albums(albums)write_albums28,0
+  def write_genres(genres)write_genres40,0
+  def read_genresread_genres51,0
+
+music_album.rb,672
+class MusicAlbum < ItemMusicAlbum5,0
+  attr_accessor :on_spotify, :archived, :publish_dateon_spotify6,0
+  attr_accessor :on_spotify, :archived, :publish_dateon_spotify=6,0
+  attr_accessor :on_spotify, :archived, :publish_datearchived6,0
+  attr_accessor :on_spotify, :archived, :publish_datearchived=6,0
+  attr_accessor :on_spotify, :archived, :publish_datepublish_date6,0
+  attr_accessor :on_spotify, :archived, :publish_datepublish_date=6,0
+  attr_reader :genregenre7,0
+  def initialize(on_spotify, publish_date)initialize9,0
+  def to_json(*args)to_json17,0
+  def self.json_create(object)json_create24,0
+  def can_be_archived?can_be_archived?30,0
+
+item.rb,867
+class ItemItem2,0
+  attr_accessor :publish_date, :author, :label, :genrepublish_date3,0
+  attr_accessor :publish_date, :author, :label, :genrepublish_date=3,0
+  attr_accessor :publish_date, :author, :label, :genreauthor3,0
+  attr_accessor :publish_date, :author, :label, :genreauthor=3,0
+  attr_accessor :publish_date, :author, :label, :genrelabel3,0
+  attr_accessor :publish_date, :author, :label, :genrelabel=3,0
+  attr_accessor :publish_date, :author, :label, :genregenre3,0
+  attr_accessor :publish_date, :author, :label, :genregenre=3,0
+  attr_reader :archivedarchived4,0
+  def initialize(publish_date, archived: false)initialize6,0
+  def move_to_archivemove_to_archive14,0
+  def add_genre(genre)add_genre18,0
+  def add_author(author)add_author23,0
+  def add_label(label)add_label28,0
+  def can_be_archieved?can_be_archieved?35,0
+
+genre.rb,271
+class GenreGenre4,0
+  attr_accessor :namename5,0
+  attr_accessor :namename=5,0
+  attr_reader :itemsitems6,0
+  def initialize(name)initialize8,0
+  def add_item(item)add_item13,0
+  def to_json(*args)to_json18,0
+  def self.json_create(object)json_create25,0
+
+bin/app.rb,195
+class AppApp1,0
+  def initializeinitialize2,0
+  def list_authorslist_authors7,0
+  def list_gameslist_games17,0
+  def add_game(game)add_game29,0
+  def add_author(author)add_author33,0
+
+bin/main.rb,208
+class MainMain6,0
+  def promptprompt8,0
+  def mainmain27,0
+  def select_option(option)select_option40,0
+  def list_selection(option)list_selection48,0
+  def add_selection(option)add_selection59,0
+
+bin/add_file.rb,55
+module AddFileAddFile1,0
+  def add_gameadd_game2,0
+
+bin/file_update.rb,143
+module FileUpdateFileUpdate3,0
+  def write_jsonwrite_json4,0
+  def reader_authorsreader_authors19,0
+  def reader_gamesreader_games31,0
+
+classes/label.rb,439
+class LabelLabel5,0
+  attr_accessor :title, :color, :itemstitle6,0
+  attr_accessor :title, :color, :itemstitle=6,0
+  attr_accessor :title, :color, :itemscolor6,0
+  attr_accessor :title, :color, :itemscolor=6,0
+  attr_accessor :title, :color, :itemsitems6,0
+  attr_accessor :title, :color, :itemsitems=6,0
+  def initialize(title, color)initialize8,0
+  def add_item(item)add_item15,0
+  def label_to_hashlabel_to_hash20,0
+
+classes/book.rb,171
+class Book < ItemBook5,0
+  def initialize(date, publisher, cover_state)initialize6,0
+  def can_be_archived?can_be_archived?12,0
+  def book_to_hashbook_to_hash16,0
+
+classes/create_book.rb,78
+class BookGeneratorBookGenerator5,0
+  def create_book(date)create_book6,0
