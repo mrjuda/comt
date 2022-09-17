@@ -1,21 +1,20 @@
-require './music_functions'
-require './genre'
+require './lib/music_functions'
+require './lib/genre'
 
-describe Data do
+describe MusicData do
   before :each do
-    @data = Data.new
+    @data = MusicData.new
   end
 
   it 'Should return a new Data object' do
-    expect(@data.class).to eql Data
+    expect(@data.class).to eql MusicData
   end
 
   it 'Should return length of 1' do
     genres = []
     genre = Genre.new('Pop')
     genres.push(genre)
-    @data.list_genres(genre)
-    expect(@data.items.length).to eql 1
+    expect(@data.length).to eql 1
   end
 
   it 'Should return name Pop' do

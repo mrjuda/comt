@@ -1,5 +1,5 @@
-require '../lib/author'
-require '../lib/item'
+require './lib/author'
+require './lib/item'
 
 describe Author do
   before :each do

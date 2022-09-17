@@ -48,7 +48,7 @@ class App
   def list_all_labels
     labels = load_labels
     labels.each_with_index do |label, index|
-      puts "[#{index}] [Name: #{label[:title]} Color: #{label[:color]}"
+      puts "[#{index}] [Label: #{label[:label]} Cover state: #{label[:cover_state]} Publisher: #{label[:publisher]}]"
     end
   end
 
@@ -72,11 +72,28 @@ class App
   end
 
   def add_book(album_item)
-    book_generator = BookGenerator.new
-    # object = add_item
-    # book = book_generator.create_book(object[:publish_date])
-    book = book_generator.create_book(album_item)
-    @books << book.book_to_hash
+    # book_generator = BookGenerator.new
+    # Book.new(date, publisher, cover_state)
+    new_book = Book.new(album_item: publish_date, album_item: publisher, album_item: cover_state, album_item: label)
+    # book = book_generator.create_book(album_item)
+    @books << new_book.book_to_hash
+    store_books(@books.to_json)
+  end
+
+  def add_item
+    puts 'When was this item published? (Format yyyy/mm/dd)'
+    publish_date = gets.chomp
+    puts 'Author name:'
+    author = gets.chomp
+    puts 'Label:'
+    label = gets.chomp
+    print 'Publisher: '
+    publisher = gets.chomp.to_s
+    print 'Cover State: '
+    cover_state = gets.chomp.to_s
+    puts 'Book created successfully!'
+    new_book = Book.new(publish_date, publisher, cover_state, label)
+    @books << new_book.book_to_hash
     store_books(@books.to_json)
   end
 
@@ -92,19 +109,5 @@ class App
 
   def add_music
     @music.create_new_album
-  end
-
-  def add_item
-    puts 'When was this item published? (Format yyyy/mm/dd)'
-    publish_date = gets.chomp
-    puts 'Author name:'
-    author = gets.chomp
-    puts 'Label:'
-    label = gets.chomp
-    # source = item_source
-    # genre = item_genre
-    # { publish_date: publish_date, author: author, label: label, source: source, genre: genre }
-    album_item = { publish_date: publish_date, author: author, label: label }
-    add_book(album_item)
   end
 end

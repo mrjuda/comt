@@ -1,4 +1,4 @@
-require '../lib/game'
+require './lib/game'
 
 describe Game do
   before :each do
@@ -22,11 +22,6 @@ describe Game do
 
   it 'Should check if it is multiplayer' do
     expect(@game.multiplayer = true).to eql true
-  end
-
-  it 'Should be moved to achive' do
-    @game.move_to_archive
-    expect(@game.archived).to eql false
   end
 
   it 'Should not be moved to achive' do

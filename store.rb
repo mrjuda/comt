@@ -3,6 +3,7 @@
 module Store
   def store_books(obj)
     File.write('./data/books.json', obj)
+    File.write('./data/labels.json', obj)
   end
 
   def load_books

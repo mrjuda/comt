@@ -55,6 +55,7 @@ Please choose an option by entering a number:
     when 4 then @app.list_games
     when 5 then @app.list_all_genres
     when 6 then @app.list_all_labels
+    # when 6 then @app.list_labels
     when 7 then @app.list_authors
     # when 8 then @app.list_sources
     when 9 then @app.add_item
