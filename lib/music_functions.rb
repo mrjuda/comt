@@ -5,16 +5,17 @@ require_relative '../lib/item'
 require 'json'
 
 # rubocop:disable all
-class Data
+class MusicData
   def initialize
-    @albums_file = 'data/albums.json'
-    @genres_file = 'data/genres.json'
+    @albums_file = './data/albums.json'
+    @genres_file = './data/genres.json'
   end
 
   def list_albums(albums)
     if albums.length.positive?
       albums.each do |album|
         on_spotify = album.on_spotify == true ? 'YES' : 'NO'
+        print album
         print "#{album.publish_date} (#{album.author.first_name} #{album.author.last_name}) - On Spotify: #{on_spotify}"
       end
     else
@@ -30,7 +31,6 @@ class Data
     else
       print 'No genres yet'
     end
-    genre.name
   end
 
   def read_albums
@@ -53,8 +53,7 @@ class Data
   end
 
   def read_genres
-    genres_file = @genres_file
-    file = File.open(genres_file, 'a+')
+    file = File.open(@genres_file, 'a+')
 
     return [] unless File.exist?(file)
     return [] if File.zero?(file)
@@ -137,6 +136,3 @@ class Data
     }
   end
 end
-
-data = Data.new
-data.create_new_album

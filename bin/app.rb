@@ -16,7 +16,7 @@ class App
     @authors = []
     @books = load_books
     @labels = load_labels
-    @music = Data.new
+    @music = MusicData.new
   end
 
   def list_authors
