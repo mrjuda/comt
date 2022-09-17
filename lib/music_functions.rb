@@ -4,7 +4,6 @@ require_relative 'author'
 require_relative '../lib/item'
 require 'json'
 
-# rubocop:disable all
 class MusicData
   def initialize
     @albums_file = './data/albums.json'

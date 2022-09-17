@@ -71,20 +71,9 @@ class App
     @authors << author
   end
 
-  def add_book(album_item)
-    # book_generator = BookGenerator.new
-    # Book.new(date, publisher, cover_state)
-    new_book = Book.new(album_item: publish_date, album_item: publisher, album_item: cover_state, album_item: label)
-    # book = book_generator.create_book(album_item)
-    @books << new_book.book_to_hash
-    store_books(@books.to_json)
-  end
-
   def add_item
     puts 'When was this item published? (Format yyyy/mm/dd)'
     publish_date = gets.chomp
-    puts 'Author name:'
-    author = gets.chomp
     puts 'Label:'
     label = gets.chomp
     print 'Publisher: '

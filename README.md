@@ -1,4 +1,4 @@
-# Catalog of my Things (Capstone) v1.2
+# Catalog of my Things (Capstone)
 ## 📑 Project description
 An 'all-stuff-like' catalog of things
 
