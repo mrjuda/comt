@@ -3,6 +3,7 @@ require_relative '../bin/create_book'
 require_relative '../lib/book'
 require_relative '../store'
 require_relative '../attributes'
+require_relative '../music_functions'
 require 'json'
 
 class App
@@ -14,6 +15,7 @@ class App
     @authors = []
     @books = load_books
     @labels = load_labels
+    @music = Data.new
   end
 
   def list_authors
@@ -62,5 +64,19 @@ class App
     book = book_generator.create_book(object[:publish_date])
     @books << book.book_to_hash
     store_books(@books.to_json)
+  end
+
+  def list_music_albums
+    albums = @music.read_albums
+    @music.list_albums(albums)
+  end
+
+  def list_all_genres
+    genres = @music.read_genres
+    @music.list_genres(genres)
+  end
+
+  def add_music
+    @music.create_new_album
   end
 end
