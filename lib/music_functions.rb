@@ -1,13 +1,13 @@
-require_relative './music_album'
-require_relative './genre'
-require_relative './lib/author'
+require_relative 'music_album'
+require_relative 'genre'
+require_relative 'author'
 require 'json'
 
 # rubocop:disable all
 class Data
   def initialize
-    @albums_file = './data/albums.json'
-    @genres_file = './data/genres.json'
+    @albums_file = '../data/albums.json'
+    @genres_file = '../data/genres.json'
   end
 
   def list_albums(albums)
@@ -52,7 +52,7 @@ class Data
   end
 
   def read_genres
-    genres_file = './data/genres.json'
+    genres_file = '../data/genres.json'
     file = File.open(genres_file, 'a+')
 
     return [] unless File.exist?(file)

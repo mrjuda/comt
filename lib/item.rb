@@ -6,18 +6,13 @@ class Item
   def initialize(publish_date, archived: false)
     @publish_date = publish_date
     @archived = archived
-    @author = nil
-    @label = nil
-    @genre = nil
+    @genre = genre
+    @author = author
+    @label = label
   end
 
   def move_to_archive
     @archived = true if can_be_archived?
-  end
-
-  def add_author(author)
-    @author = author
-    author.add_item(self)
   end
 
   def add_label(label)
@@ -28,6 +23,11 @@ class Item
   def add_genre(genre)
     @genre = genre
     genre.add_item(self)
+  end
+
+  def add_author(author)
+    @author = author
+    author.add_item(self)
   end
 
   private

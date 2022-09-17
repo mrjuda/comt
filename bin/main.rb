@@ -1,12 +1,16 @@
 #!/usr/bin/env ruby
 
 require_relative '../bin/app'
+require_relative '../bin/add_file'
+require_relative '../bin/file_update'
+require_relative '../lib/create_book'
 require_relative '../lib/game'
 require_relative '../lib/author'
-require_relative '../bin/add_file'
 require_relative '../lib/book'
-require_relative '../bin/create_book'
 require_relative '../lib/item'
+require_relative '../lib/music_album'
+require_relative '../lib/genre'
+require_relative '../lib/label'
 
 class Main
   include AddFile

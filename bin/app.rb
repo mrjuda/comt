@@ -1,9 +1,9 @@
-require_relative '../label'
-require_relative '../bin/create_book'
-require_relative '../lib/book'
 require_relative '../store'
 require_relative '../attributes'
-require_relative '../music_functions'
+require_relative '../lib/label'
+require_relative '../lib/create_book'
+require_relative '../lib/book'
+require_relative '../lib/music_functions'
 require 'json'
 
 class App
