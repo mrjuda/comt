@@ -1,6 +1,6 @@
 # label_spec.rb
 
-require_relative '../label'
+require_relative '../lib/label'
 
 describe Label do
   context 'When testing Label class' do

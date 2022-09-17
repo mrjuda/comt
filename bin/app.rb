@@ -1,9 +1,10 @@
-require_relative '../label'
-require_relative '../bin/create_book'
-require_relative '../lib/book'
 require_relative '../store'
 require_relative '../attributes'
-require_relative '../music_functions'
+require_relative '../lib/label'
+require_relative '../lib/create_book'
+require_relative '../lib/book'
+require_relative '../lib/item'
+require_relative '../lib/music_functions'
 require 'json'
 
 class App
@@ -15,7 +16,7 @@ class App
     @authors = []
     @books = load_books
     @labels = load_labels
-    @music = Data.new
+    @music = MusicData.new
   end
 
   def list_authors
@@ -45,8 +46,20 @@ class App
   end
 
   def list_all_labels
-    @labels.each_with_index do |label, index|
-      puts "[#{index}] [Name: #{label[:title]} Color: #{label[:color]}"
+    labels = load_labels
+    labels.each_with_index do |label, index|
+      puts "[#{index}] [Label: #{label[:label]} Cover state: #{label[:cover_state]} Publisher: #{label[:publisher]}]"
+    end
+  end
+
+  def load_labels
+    file = File.open('./data/labels.json')
+    file_data = file.read
+    if file_data == ''
+      @labels = []
+    else
+      convert_to_array = JSON.parse(file_data, symbolize_names: true)
+      @labels = convert_to_array
     end
   end
 
@@ -58,11 +71,18 @@ class App
     @authors << author
   end
 
-  def add_book
-    book_generator = BookGenerator.new
-    object = add_item
-    book = book_generator.create_book(object[:publish_date])
-    @books << book.book_to_hash
+  def add_item
+    puts 'When was this item published? (Format yyyy/mm/dd)'
+    publish_date = gets.chomp
+    puts 'Label:'
+    label = gets.chomp
+    print 'Publisher: '
+    publisher = gets.chomp.to_s
+    print 'Cover State: '
+    cover_state = gets.chomp.to_s
+    puts 'Book created successfully!'
+    new_book = Book.new(publish_date, publisher, cover_state, label)
+    @books << new_book.book_to_hash
     store_books(@books.to_json)
   end
 
@@ -78,15 +98,5 @@ class App
 
   def add_music
     @music.create_new_album
-  end
-
-  def add_item
-    puts 'When was this item published? (Format yyyy/mm/dd)'
-    publish_date = gets.chomp
-    author = item_author
-    label = item_label
-    source = item_source
-    genre = item_genre
-    { publish_date: publish_date, author: author, label: label, source: source, genre: genre }
   end
 end

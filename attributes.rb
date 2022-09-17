@@ -1,6 +1,6 @@
 # attributes.rb
 
-require_relative 'label'
+require_relative './lib/label'
 require_relative 'store'
 
 module Attributes

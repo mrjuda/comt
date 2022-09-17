@@ -1,13 +1,14 @@
 # book.rb
 
-require_relative 'item'
+require_relative '../lib/item'
 require 'date'
 
 class Book < Item
-  def initialize(date, publisher, cover_state)
+  def initialize(date, publisher, cover_state, label)
     super(date)
     @publisher = publisher
     @cover_state = cover_state
+    @label = label
   end
 
   def can_be_archived?
@@ -15,6 +16,6 @@ class Book < Item
   end
 
   def book_to_hash
-    { publisher: @publisher, cover_state: @cover_state }
+    { publisher: @publisher, cover_state: @cover_state, label: @label }
   end
 end

@@ -1,5 +1,5 @@
-require_relative './item'
-require_relative './genre'
+require_relative '../lib/item'
+require_relative 'genre'
 require 'date'
 
 # Album class
@@ -8,11 +8,13 @@ class MusicAlbum < Item
   attr_reader :genre
 
   def initialize(on_spotify, publish_date, genre, author)
-    super(publish_date, genre, author)
+    super(publish_date)
     @id = Random.rand(1..1000)
     @on_spotify = on_spotify
     @publish_date = publish_date
     @archived = can_be_archived?
+    @genre = genre
+    @author = author
   end
 
   private

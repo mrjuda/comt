@@ -1,13 +1,24 @@
 [
   {
-    "publish_date": "2022/02/16",
+    "publish_date": "2019-7-8",
     "on_spotify": "true",
     "genre": {
-      "name": "rock"
+      "name": "Reggae"
     },
     "author": {
-      "first_name": "rock",
-      "last_name": "rco"
+      "first_name": "Bob",
+      "last_name": "Marley"
+    }
+  },
+  {
+    "publish_date": "2018-4-3",
+    "on_spotify": "false",
+    "genre": {
+      "name": "Pop"
+    },
+    "author": {
+      "first_name": "Michael",
+      "last_name": "Jackson"
     }
   }
 ]

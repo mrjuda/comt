@@ -1,20 +1,22 @@
-require_relative './music_album'
-require_relative './genre'
-require_relative './lib/author'
+require_relative 'music_album'
+require_relative 'genre'
+require_relative 'author'
+require_relative '../lib/item'
 require 'json'
 
-# rubocop:disable all
-class Data
+class MusicData
   def initialize
     @albums_file = './data/albums.json'
     @genres_file = './data/genres.json'
+    @albums = []
+    @genres = []
   end
 
   def list_albums(albums)
     if albums.length.positive?
       albums.each do |album|
         on_spotify = album.on_spotify == true ? 'YES' : 'NO'
-        print "#{album.publish_date} (#{album.author.first_name} #{album.author.last_name}) - On Spotify: #{on_spotify}"
+        puts "#{album.publish_date} (#{album.author.first_name} #{album.author.last_name}) - On Spotify: #{on_spotify}"
       end
     else
       print 'No albums yet'
@@ -24,12 +26,12 @@ class Data
   def list_genres(genres)
     if genres.length.positive?
       genres.each do |genre|
-        print genre.name
+        puts genre.name
       end
     else
       print 'No genres yet'
     end
-    genre.name
+    genres[0].name
   end
 
   def read_albums
@@ -52,8 +54,7 @@ class Data
   end
 
   def read_genres
-    genres_file = './data/genres.json'
-    file = File.open(genres_file, 'a+')
+    file = File.open(@genres_file, 'a+')
 
     return [] unless File.exist?(file)
     return [] if File.zero?(file)
@@ -70,7 +71,6 @@ class Data
   end
 
   def create_new_album
-    @albums = []
     puts 'Please enter the publish date (YYYY/MM/DD):'
     publish_date = gets.chomp
     puts 'Is it on Spotify? (true/false)'
@@ -90,13 +90,15 @@ class Data
     write_albums(@albums)
     write_genres(@albums)
     puts 'Album created successfully!'
-    album
+    @albums
   end
 
   def write_genres(albums)
     file = File.open(@genres_file, 'a+')
     File.write(@genres_file, JSON.pretty_generate(make_genre(albums)))
+    @genres.push(make_genre(albums))
     file.close
+    @genres
   end
 
   def make_genre(albums)
@@ -136,6 +138,3 @@ class Data
     }
   end
 end
-
-data = Data.new
-data.create_new_album
