@@ -10,6 +10,7 @@ require_relative '../lib/item'
 
 class Main
   include AddFile
+
   def prompt
     print '
 Please choose an option by entering a number:
@@ -59,12 +60,13 @@ Please choose an option by entering a number:
     when 5 then @app.list_all_genres
     when 6 then @app.list_all_labels
     when 7 then @app.list_authors
-      # when 8 then @app.list_sources
+    # when 8 then @app.list_sources
     end
   end
 
   def add_selection(option)
     case option
+    when 9 then add_book
     when 10 then @app.add_music
     # when 11 then add_movie
     when 12 then add_game
