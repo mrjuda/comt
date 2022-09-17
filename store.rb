@@ -20,14 +20,14 @@ module Store
     File.write('./data/labels.json', obj)
   end
 
-  def load_labels
-    file = File.open('./data/labels.json')
-    file_data = file.read
-    if file_data == ''
-      @labels = []
-    else
-      convert_to_array = JSON.parse(file_data, symbolize_names: true)
-      @labels = convert_to_array
-    end
-  end
+  # def load_labels
+  #   file = File.open('./data/labels.json')
+  #   file_data = file.read
+  #   if file_data == ''
+  #     @labels = []
+  #   else
+  #     convert_to_array = JSON.parse(file_data, symbolize_names: true)
+  #     @labels = convert_to_array
+  #   end
+  # end
 end

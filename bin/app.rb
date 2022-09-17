@@ -46,8 +46,20 @@ class App
   end
 
   def list_all_labels
-    @labels.each_with_index do |label, index|
+    labels = load_labels
+    labels.each_with_index do |label, index|
       puts "[#{index}] [Name: #{label[:title]} Color: #{label[:color]}"
+    end
+  end
+
+  def load_labels
+    file = File.open('./data/labels.json')
+    file_data = file.read
+    if file_data == ''
+      @labels = []
+    else
+      convert_to_array = JSON.parse(file_data, symbolize_names: true)
+      @labels = convert_to_array
     end
   end
 
@@ -59,10 +71,11 @@ class App
     @authors << author
   end
 
-  def add_book
+  def add_book(album_item)
     book_generator = BookGenerator.new
-    object = add_item
-    book = book_generator.create_book(object[:publish_date])
+    # object = add_item
+    # book = book_generator.create_book(object[:publish_date])
+    book = book_generator.create_book(album_item)
     @books << book.book_to_hash
     store_books(@books.to_json)
   end
@@ -84,10 +97,14 @@ class App
   def add_item
     puts 'When was this item published? (Format yyyy/mm/dd)'
     publish_date = gets.chomp
-    author = item_author
-    label = item_label
-    source = item_source
-    genre = item_genre
-    { publish_date: publish_date, author: author, label: label, source: source, genre: genre }
+    puts 'Author name:'
+    author = gets.chomp
+    puts 'Label:'
+    label = gets.chomp
+    # source = item_source
+    # genre = item_genre
+    # { publish_date: publish_date, author: author, label: label, source: source, genre: genre }
+    album_item = { publish_date: publish_date, author: author, label: label }
+    add_book(album_item)
   end
 end
