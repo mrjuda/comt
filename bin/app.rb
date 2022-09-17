@@ -3,6 +3,7 @@ require_relative '../attributes'
 require_relative '../lib/label'
 require_relative '../lib/create_book'
 require_relative '../lib/book'
+require_relative '../lib/item'
 require_relative '../lib/music_functions'
 require 'json'
 

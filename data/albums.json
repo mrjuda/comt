@@ -1,13 +1,13 @@
 [
   {
-    "publish_date": "2019/08/08",
+    "publish_date": "2022/08/08",
     "on_spotify": "true",
     "genre": {
-      "name": "rock"
+      "name": null
     },
     "author": {
-      "first_name": "rock",
-      "last_name": "rock"
+      "first_name": null,
+      "last_name": null
     }
   }
 ]

@@ -1,6 +1,6 @@
 # book.rb
 
-require_relative 'item'
+require_relative '../lib/item'
 require 'date'
 
 class Book < Item

@@ -6,9 +6,9 @@ class Item
   def initialize(publish_date, archived: false)
     @publish_date = publish_date
     @archived = archived
-    @genre = genre
-    @author = author
-    @label = label
+    @genre = nil
+    @author = nil
+    @label = nil
   end
 
   def move_to_archive
