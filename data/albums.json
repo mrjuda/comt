@@ -1,13 +1,25 @@
 [
   {
+    "publish_date": "1979/05/05",
+    "on_spotify": "true",
+    "genre": {
+      "name": "Pop"
+    },
+    "author": {
+      "first_name": "Jamie",
+      "last_name": "McCallister"
+    }
+  }
+][
+  {
     "publish_date": "2022/08/08",
     "on_spotify": "true",
     "genre": {
-      "name": null
+      "name": "Electronic"
     },
     "author": {
-      "first_name": null,
-      "last_name": null
+      "first_name": "Tiesto",
+      "last_name": "DutchGuy"
     }
   }
 ]

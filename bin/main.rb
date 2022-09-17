@@ -58,7 +58,7 @@ Please choose an option by entering a number:
     when 7 then @app.list_authors
     # when 8 then @app.list_sources
     when 9 then @app.add_item
-    # when 10 then @app.add_music
+    when 10 then @app.add_music
     # when 11 then add_movie
     when 12 then add_game
     when 13 then puts 'Thank you for using our app'

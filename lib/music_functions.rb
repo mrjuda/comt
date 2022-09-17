@@ -113,7 +113,7 @@ class MusicData
 
   def write_albums(albums)
     file = File.open(@albums_file, 'a+')
-    File.write(file, JSON.pretty_generate(make_album(albums)))
+    File.write(file, JSON.pretty_generate(make_album(albums)), mode: 'a')
     file.close
   end
 
